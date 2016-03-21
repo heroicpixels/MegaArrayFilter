@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Heroicpixels\MegaArrayFilter;
 
@@ -12,8 +12,8 @@ class MegaArrayFilter {
 	/**
 	 *	Provide an array of valid keys and values
 	 */
-	public function __construct(array $unfiltered) {
-		$this->unfiltered = $unfiltered;
+	public function __construct(array $unfiltered = array()) {
+		$this->unfiltered($unfiltered);
 	}
 	/**
 	 *	Add a filter
@@ -28,6 +28,12 @@ class MegaArrayFilter {
 			'default'	=> $default,
 		);
 		return $this;
+	}
+	public function get($key = false) {
+		if ( $key ) {
+			return isset($this->filtered[$key]) ? $this->filtered[$key] : NULL;
+		}
+		return $this->filtered;
 	}
 	/**
 	 *	Define a global mutator, which can be a function 
@@ -87,5 +93,14 @@ class MegaArrayFilter {
 		}
 		return $this->filtered;
 	}
-
+	/**
+	 *	Get or set raw data
+	 */
+	public function unfiltered(array $unfiltered = array()) {
+		if ( sizeof($unfiltered) > 0 ) {
+			$this->unfiltered = $unfiltered;
+			return $this;
+		}
+		return $this->unfiltered;
+	}
 }
