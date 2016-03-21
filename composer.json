@@ -1,0 +1,19 @@
+{
+    "name": "Heroicpixels/MegaArrayFilter",
+    "description": "",
+    "authors": [
+        {
+            "name": "heroicpixels",
+            "email": "admin@heroicpixels.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Heroicpixels\\MegaArrayFilter": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
